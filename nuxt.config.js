@@ -1,4 +1,12 @@
+import environmentConfig from './config/env.config.js'
+
+let envConfig = environmentConfig[process.env.NODE_ENV]
+console.log(envConfig)
+// console.log(process.env)
+
 export default {
+  mode: 'spa',
+  env: envConfig,
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -7,7 +15,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'post-and-comments',
+    title: envConfig.appName,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -55,5 +63,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  router: {
+    // es opcional
+    base: envConfig.appBaseDir
   }
 }
