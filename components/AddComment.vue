@@ -1,13 +1,15 @@
 <template>
   <form @submit="submit">
     <textarea name="textarea" rows="1" cols="50">Write something here</textarea>
-    <button type="submit">Comentar</button>
+    <button type="submit">
+      Comentar
+    </button>
   </form>
 </template>
 
 <script>
 export default {
-  name: 'add-comment',
+  name: 'AddComment',
   props: {
 
   },

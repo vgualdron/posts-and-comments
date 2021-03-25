@@ -1,25 +1,24 @@
 <template>
   <header>
-    <h1> Header </h1>
+    <h1>{{ appName }}</h1>
   </header>
 </template>
 
 <script>
+import envConfig from '../helpers/config';
 export default {
-  name: 'header',
+  name: 'Header',
   props: {
 
   },
   data () {
     return {
-      user: '',
-      password: ''
+      appName: envConfig.appName
     };
   },
-  mounted () {
+  created () {
   },
   methods: {
-
   }
 };
 </script>

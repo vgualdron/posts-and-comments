@@ -12,7 +12,7 @@ import InformationPost from '~/components/InformationPost.vue';
 import ActionsPost from '~/components/ActionsPost.vue';
 import GridComments from '~/components/GridComments.vue';
 export default {
-  name: 'post',
+  name: 'Post',
   components: {
     InformationPost,
     ActionsPost,

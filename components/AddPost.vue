@@ -6,8 +6,10 @@
 </template>
 
 <script>
+import firebase from '../helpers/firebase';
+
 export default {
-  name: 'add-posts',
+  name: 'AddPosts',
   props: {
   },
   data () {
@@ -18,12 +20,15 @@ export default {
   mounted () {
   },
   methods: {
-    submit (event) {
+    async submit (event) {
       event.preventDefault();
       const newPost = {
-        description: this.description
+        description: this.description,
+        date: new Date().toString()
       };
-      this.$emit('successfulPost', newPost);
+      await firebase.add(newPost);
+      this.description = '';
+      this.$emit('successfulPost');
     }
   }
 };

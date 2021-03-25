@@ -16,6 +16,9 @@ const db = app.database();
 const posts = db.ref('posts');
 
 const firebase = {
+  getRef () {
+    return posts;
+  },
   async login () {
     return await Firebase.auth().signInWithEmailAndPassword(
       firebaseConfig.user.email, firebaseConfig.user.password
@@ -31,6 +34,12 @@ const firebase = {
     }
     return false;
   },
+  getUserOnSesion () {
+    return firebase.auth().currentUser;
+  },
+  getUidUserOnSesion () {
+    return this.getUserOnSesion().uid;
+  },
   async add (object) {
     await posts.push(object, function (error) {
       if (error) {
@@ -41,7 +50,7 @@ const firebase = {
     });
   },
   async get () {
-    return await posts.get();
+    // return await posts.get();
   }
 };
 

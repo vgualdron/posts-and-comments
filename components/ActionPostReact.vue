@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'action-post-react',
+  name: 'ActionPostReact',
   props: {
 
   },

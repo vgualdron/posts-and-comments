@@ -7,7 +7,7 @@
 <script>
 import Post from '~/components/Post.vue';
 export default {
-  name: 'grid-posts',
+  name: 'GridPosts',
   components: {
     Post
   },

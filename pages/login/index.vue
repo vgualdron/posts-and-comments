@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import firebase from '../helpers/firebase';
+import firebase from '../../helpers/firebase';
 import Header from '~/components/Header.vue';
 import Nav from '~/components/Nav.vue';
 import GridPosts from '~/components/GridPosts.vue';
@@ -17,7 +17,7 @@ import AddPost from '~/components/AddPost.vue';
 import Footer from '~/components/Footer.vue';
 
 export default {
-  name: 'Inicio',
+  name: 'Login',
   components: {
     Header,
     Nav,

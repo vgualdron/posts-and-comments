@@ -10,7 +10,7 @@
 import ActionPostReact from '~/components/ActionPostReact.vue';
 import ActionPostComment from '~/components/ActionPostComment.vue';
 export default {
-  name: 'actions-post',
+  name: 'ActionsPost',
   components: {
     ActionPostReact,
     ActionPostComment

@@ -1,6 +1,6 @@
 import environmentConfig from './config/env.config.js'
 
-let envConfig = environmentConfig[process.env.NODE_ENV]
+let envConfig = environmentConfig[process.env.NODE_ENV];
 console.log(envConfig)
 // console.log(process.env)
 

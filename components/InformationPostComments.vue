@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'information-post-comments',
+  name: 'InformationPostComments',
   props: {
 
   },

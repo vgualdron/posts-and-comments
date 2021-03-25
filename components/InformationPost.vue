@@ -10,7 +10,7 @@
 import InformationPostReactions from '~/components/InformationPostReactions.vue';
 import InformationPostComments from '~/components/InformationPostComments.vue';
 export default {
-  name: 'information-post',
+  name: 'InformationPost',
   components: {
     InformationPostReactions,
     InformationPostComments
