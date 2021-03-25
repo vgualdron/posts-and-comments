@@ -20,8 +20,6 @@ export default {
   methods: {
     submit (event) {
       event.preventDefault();
-      console.log(event);
-      console.log('agregar publicación: ' + this.description);
       const newPost = {
         description: this.description
       };

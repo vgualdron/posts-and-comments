@@ -1,43 +1,47 @@
 <template>
   <div class="container">
-    <VHeader />
-    <VNav />
+    <Header />
+    <Nav />
     <AddPost @successfulPost="setPost" />
     <GridPosts :posts="posts" />
-    <VFooter />
+    <Footer />
   </div>
 </template>
 
 <script>
-import VHeader from '~/components/VHeader.vue';
-import VNav from '~/components/VNav.vue';
+import firebase from '../helpers/firebase';
+import Header from '~/components/Header.vue';
+import Nav from '~/components/Nav.vue';
 import GridPosts from '~/components/GridPosts.vue';
 import AddPost from '~/components/AddPost.vue';
-import VFooter from '~/components/VFooter.vue';
+import Footer from '~/components/Footer.vue';
 
 export default {
   name: 'Inicio',
   components: {
-    VHeader,
-    VNav,
-    VFooter,
+    Header,
+    Nav,
+    Footer,
     GridPosts,
     AddPost
   },
   layout: 'default',
   data () {
     return {
+      isSigned: false,
       posts: []
     };
   },
-  created () {
-
+  async created () {
+    this.isSigned = await firebase.isSigned();
   },
   mounted () {
   },
   methods: {
-    setPost (post) {
-      this.posts.push(post);
+    async setPost (post) {
+      await firebase.add(post);
+      const posts = await firebase.get();
+      console.log(posts);
     }
   }
 };

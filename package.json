@@ -16,7 +16,11 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.9.1",
     "firebase": "^8.3.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "toastr": "^2.1.4",
+    "vue-localstorage": "^0.6.2",
+    "vue-perfect-scrollbar": "^0.1.0",
+    "vue-toastr-2": "0.0.10"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",

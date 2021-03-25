@@ -1,0 +1,12 @@
+{
+ "posts":
+    [
+        {
+            "cantidad" : 2,
+            "nombre" : "tomates"
+        }, {
+            "cantidad" : 3,
+            "nombre" : "Botellas de agua"
+        }
+    ]
+}
