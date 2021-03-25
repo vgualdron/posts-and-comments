@@ -31,5 +31,36 @@ fieldset.white {
 
 fieldset > .btn {
     float: right;
-    margin: 10px;
+    margin: 5px;
+}
+
+/*Tablet*/
+/*Portrait*/
+@media (min-width: 576px) and (max-width: 991.98px) and (orientation:portrait) {
+    .container {
+        padding: 25px 25px;
+    }
+}
+
+/*landscape*/
+@media (min0-width: 991.98px) and (max-width: 1199.98px)and (orientation:landscape) {
+    .container {
+        padding: 25px 25px;
+    }
+}
+/*fin tablet*/
+
+/*movil*/
+/*Portrait*/
+/*Default*/
+@media (max-width: 575.98px)and (orientation:portrait) {
+    .container {
+        padding: 25px 25px;
+    }
+ }
+/*landscape*/
+@media (min-width: 576px) and (max-width: 991.98px) and (orientation:landscape) {
+    .container {
+        padding: 25px 25px;
+    }
 }
