@@ -1,17 +1,17 @@
 <template>
-  <div class="container">
+  <div>
     <Header />
-    <Nav />
-    <AddPost @successfulPost="setPost" />
-    <GridPosts :posts="posts" />
-    <Footer />
+    <section class="container">
+      <AddPost @successfulPost="setPost" />
+      <GridPosts :posts="posts" />
+      <Footer />
+    </section>
   </div>
 </template>
 
 <script>
 import firebase from '../helpers/firebase';
 import Header from '~/components/Header.vue';
-import Nav from '~/components/Nav.vue';
 import GridPosts from '~/components/GridPosts.vue';
 import AddPost from '~/components/AddPost.vue';
 import Footer from '~/components/Footer.vue';
@@ -20,7 +20,6 @@ export default {
   name: 'Inicio',
   components: {
     Header,
-    Nav,
     Footer,
     GridPosts,
     AddPost
@@ -54,19 +53,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: grid;
-}
-
-header {
-  width: 100%;
-  display: block;
-}
-</style>

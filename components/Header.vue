@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="navbar">
     <h1>{{ appName }}</h1>
   </header>
 </template>

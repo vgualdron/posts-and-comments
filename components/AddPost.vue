@@ -1,7 +1,12 @@
 <template>
   <form @submit="submit">
-    <textarea name="textarea" rows="2" cols="50" v-model="description">Write something here</textarea>
-    <button type="submit">Publicar</button>
+    <fieldset class="without-border-top without-border-radius-bottom white">
+      <textarea class="form-control" v-model="description" placeholder="Escribe aquí tu estado">
+      </textarea>
+    </fieldset>
+    <fieldset class="without-border-top without-border-radius-top white">
+      <button :disabled="this.description.trim().length <= 0" class="btn btn-primary" type="submit">Publicar</button>
+    </fieldset>
   </form>
 </template>
 
@@ -22,6 +27,9 @@ export default {
   methods: {
     async submit (event) {
       event.preventDefault();
+      if (this.description.trim().length <= 0) {
+        this.$toast.error('Debes escribir un estado para poder realizar la publicación.');
+      }
       const newPost = {
         description: this.description,
         date: new Date().toString()
@@ -29,6 +37,7 @@ export default {
       await firebase.add(newPost);
       this.description = '';
       this.$emit('successfulPost');
+      this.$toast.success('Publicación realizada con éxito.');
     }
   }
 };

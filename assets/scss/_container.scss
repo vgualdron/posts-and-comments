@@ -1,0 +1,35 @@
+@import "variables";
+
+.container {
+    padding: 50px 250px;
+}
+
+fieldset {
+    border: solid 1px $gray-300;
+    padding: 0px;
+}
+
+fieldset.without-border-top {
+    border-top: none;
+}
+
+fieldset.without-border-radius-top {
+    border-radius: 0px 5px 5px 0px;
+}
+
+fieldset.without-border-radius-bottom {
+    border-radius: 5px 0px 0px 5px;
+}
+
+fieldset.border-radius {
+    border-radius: 5px;
+}
+
+fieldset.white {
+    background-color: $white;
+}
+
+fieldset > .btn {
+    float: right;
+    margin: 10px;
+}

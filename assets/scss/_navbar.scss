@@ -1,0 +1,10 @@
+@import "variables";
+
+.navbar {
+    background-color: $white;
+    border-bottom: solid 1px $gray-300;
+    height: 52px;
+    position: sticky;
+    top: 0;
+    z-index: 1071;
+}
