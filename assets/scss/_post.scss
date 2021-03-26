@@ -1,0 +1,26 @@
+@import "variables";
+
+td.td-image {
+    width: 80px;
+    display: block;
+    text-align: center;
+}
+
+td.td-image > img {
+    width: 50px;
+    border-radius: 50px;
+}
+
+.post-user-name {
+    color: $primary;
+    font-size: 18px;
+}
+
+.post-date {
+    color: $gray-500;
+    font-size: 12px;
+}
+
+.post-description {
+    margin-top: 15px;
+}

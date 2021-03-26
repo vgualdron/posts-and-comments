@@ -24,18 +24,21 @@ const firebase = {
       firebaseConfig.user.email, firebaseConfig.user.password
     );
   },
-  async logout () {
+  async logout (self) {
+    localStorage.removeItem('user');
     return await Firebase.auth().signOut();
   },
   async isSigned () {
     const result = await this.login();
     if (result && result.user) {
+      localStorage.setItem('user', JSON.stringify(result.user));
       return true;
     }
     return false;
   },
   getUserOnSesion () {
-    return firebase.auth().currentUser;
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
   },
   getUidUserOnSesion () {
     return this.getUserOnSesion().uid;

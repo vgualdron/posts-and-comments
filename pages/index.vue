@@ -4,8 +4,8 @@
     <section class="container">
       <AddPost @successfulPost="setPost" />
       <GridPosts :posts="posts" />
-      <Footer />
     </section>
+    <Footer />
   </div>
 </template>
 
@@ -37,10 +37,14 @@ export default {
     firebase.getRef().orderByChild('description').on('value', function (snapshot) {
       const posts = snapshot.val();
       self.posts = [];
-      const keys = Object.keys(posts);
-      keys.forEach((element) => {
-        self.posts.push(posts[element]);
-      });
+      if (posts) {
+        const keys = Object.keys(posts);
+        if (keys) {
+          keys.forEach((element) => {
+            self.posts.push(posts[element]);
+          });
+        }
+      }
     }, function (errorObject) {
       console.log('The read failed: ' + errorObject.code);
     });

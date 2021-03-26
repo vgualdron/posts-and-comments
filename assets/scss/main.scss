@@ -3,6 +3,7 @@
 @import "container";
 @import "form";
 @import "buttons";
+@import "post";
 
 html {
     box-sizing: border-box;
@@ -16,7 +17,7 @@ body {
     align-items: center;
     text-align: center;
     background-color: $gray-100;
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: $font-family;
 }
   
 *,

@@ -14,19 +14,24 @@
     padding: .375rem .75rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     width: 100%;
+    font-family: $font-family;
 }
 
 textarea.form-control {
     color: $teal;
     height: 70px;
-    overflow-y: auto;
+    overflow: auto;
     padding: 10px;
     resize: none;
+    outline: none;
 }
 
 textarea.form-control:hover {
-    color: $teal;
-    border: 1px solid $gray-300;
+    color: $primary;
+}
+
+textarea.border-none {
+    border: none;
 }
 
 textarea::-webkit-scrollbar {
@@ -41,4 +46,12 @@ textarea::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
+
+textarea::placeholder {
+    color: $primary;  
+}
+    
+ 
+
+
 

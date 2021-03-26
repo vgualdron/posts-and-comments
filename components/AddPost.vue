@@ -1,7 +1,7 @@
 <template>
   <form @submit="submit">
-    <fieldset class="without-border-top without-border-radius-bottom white">
-      <textarea class="form-control" v-model="description" placeholder="Escribe aquí tu estado">
+    <fieldset class="without-border-bottom without-border-radius-bottom white">
+      <textarea class="form-control border-none" v-model="description" placeholder="Escribe aquí tu estado">
       </textarea>
     </fieldset>
     <fieldset class="without-border-top without-border-radius-top white">
@@ -32,7 +32,8 @@ export default {
       }
       const newPost = {
         description: this.description,
-        date: new Date().toString()
+        date: new Date().getTime(),
+        user: await firebase.getUserOnSesion()
       };
       await firebase.add(newPost);
       this.description = '';

@@ -14,11 +14,11 @@ fieldset.without-border-top {
 }
 
 fieldset.without-border-radius-top {
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 fieldset.without-border-radius-bottom {
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 5px 0px 0px;
 }
 
 fieldset.border-radius {
@@ -32,6 +32,16 @@ fieldset.white {
 fieldset > .btn {
     float: right;
     margin: 5px;
+}
+
+article.post {
+    background-color: $white;
+    border: solid 1px $gray-300;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: justify;
+    padding-right: 10px;
 }
 
 /*Tablet*/
