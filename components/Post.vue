@@ -10,7 +10,7 @@
             {{post.user.email}}
           </h1>
           <h4 class="post-date">
-            {{post.date}}
+            {{new Date(post.date).toLocaleString()}}
           </h4>
           <p class="post-description">
             {{post.description}}
@@ -18,7 +18,7 @@
         </td>
       </tr>
     </table>
-    <table>
+    <!--<table>
       <tr>
         <td class="td-image">
         </td>
@@ -28,22 +28,22 @@
           <GridComments />
         </td>
       </tr>
-    </table>
+    </table> -->
   </article>
 </template>
 
 <script>
-import InformationPost from '~/components/InformationPost.vue';
-import ActionsPost from '~/components/ActionsPost.vue';
-import GridComments from '~/components/GridComments.vue';
+// import InformationPost from '~/components/InformationPost.vue';
+// import ActionsPost from '~/components/ActionsPost.vue';
+// import GridComments from '~/components/GridComments.vue';
 import ImageProfile from '~/components/ImageProfile.vue';
 
 export default {
   name: 'Post',
   components: {
-    InformationPost,
-    ActionsPost,
-    GridComments,
+    // InformationPost,
+    // ActionsPost,
+    // GridComments,
     ImageProfile
   },
   props: {

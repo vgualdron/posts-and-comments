@@ -34,7 +34,7 @@ export default {
   async created () {
     const self = this;
     self.isSigned = await firebase.isSigned();
-    firebase.getRef().orderByChild('description').on('value', function (snapshot) {
+    firebase.getRef().orderByChild('date').on('value', function (snapshot) {
       const posts = snapshot.val();
       self.posts = [];
       if (posts) {
@@ -43,6 +43,8 @@ export default {
           keys.forEach((element) => {
             self.posts.push(posts[element]);
           });
+          const arrayTemp = self.posts.sort((a, b) => b.date - a.date);
+          self.posts = [...arrayTemp];
         }
       }
     }, function (errorObject) {
