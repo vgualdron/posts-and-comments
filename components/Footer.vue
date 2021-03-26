@@ -1,5 +1,5 @@
 <template>
-  <h1> Footer </h1>
+  <p> By VGualdrón 2021 </p>
 </template>
 
 <script>
