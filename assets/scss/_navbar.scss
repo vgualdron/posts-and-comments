@@ -3,9 +3,13 @@
 .navbar {
     background-color: $white;
     border-bottom: solid 1px $gray-300;
-    height: 52px;
+    height: 60px;
     position: sticky;
     top: 0;
     z-index: 1071;
     font-family: $font-family;
+}
+
+.navbar > h1 {
+    line-height: 60px;
 }
