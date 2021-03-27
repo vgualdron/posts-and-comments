@@ -1,8 +1,6 @@
 <template>
   <article class="grid-comments">
-    <Comment class="comment" />
-    <Comment class="comment" />
-    <Comment class="comment" />
+    <Comment class="comment" v-for="comment in comments" :key="comment.id" :comment="comment"/>
   </article>
 </template>
 

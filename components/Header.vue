@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import envConfig from '../helpers/config';
+import configHelper from '../helpers/configHelper';
 export default {
   name: 'Header',
   props: {
@@ -13,7 +13,7 @@ export default {
   },
   data () {
     return {
-      appName: envConfig.appName
+      appName: configHelper.appName
     };
   },
   created () {

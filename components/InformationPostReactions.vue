@@ -1,5 +1,5 @@
 <template>
-  <div>information post reactions</div>
+  <div></div>
 </template>
 
 <script>

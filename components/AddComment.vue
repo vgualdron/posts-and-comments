@@ -1,20 +1,25 @@
 <template>
   <form class="add-comment" @submit="submit">
     <fieldset class="without-border-bottom without-border-radius-bottom white">
-      <textarea class="form-control border-none secondary" v-model="description" placeholder="Escribe aquí tu estado">
+      <textarea class="form-control border-none secondary" v-model="description" placeholder="Escribe aquí tu comentario">
       </textarea>
     </fieldset>
     <fieldset v-if="description.trim().length > 0" class="without-border-top without-border-radius-top white">
-      <button class="btn btn-primary" type="submit">Publicar</button>
+      <button class="btn btn-primary" type="submit">Comentar</button>
     </fieldset>
   </form>
 </template>
 
 <script>
+import firebaseHelper from '../helpers/firebaseHelper';
+
 export default {
   name: 'AddComment',
   props: {
-
+    post: {
+      type: Object,
+      require: true
+    }
   },
   data () {
     return {
@@ -24,11 +29,21 @@ export default {
   mounted () {
   },
   methods: {
-    submit: (event) => {
+    async submit (event) {
       event.preventDefault();
-      console.log('agregar comentario');
+      if (this.description.trim().length <= 0) {
+        this.$toast.error('Debes escribir un comentario para poder realizar la publicación.');
+      }
+      const newComment = {
+        description: this.description,
+        date: new Date().getTime(),
+        user: await firebaseHelper.getUserOnSesion()
+      };
+      await firebaseHelper.addComment(newComment, this.post.id);
+      this.description = '';
+      this.$emit('successfulComment');
+      this.$toast.success('Comentario realizado con éxito.');
     }
-
   }
 };
 </script>

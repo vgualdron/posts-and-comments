@@ -15,7 +15,7 @@ if (!Firebase.apps.length) {
 const db = app.database();
 const posts = db.ref('posts');
 
-const firebase = {
+const firebaseHelper = {
   getRef () {
     return posts;
   },
@@ -43,18 +43,25 @@ const firebase = {
   getUidUserOnSesion () {
     return this.getUserOnSesion().uid;
   },
-  async add (object) {
+  async addPost (object) {
     await posts.push(object, function (error) {
       if (error) {
-        console.log('Error al intentar agregar el registro.', 'Aviso');
+        alert('Error al intentar agregar el registro.', 'Aviso');
       } else {
         console.log('Registro agregado correctamente.', 'Aviso');
       }
     });
   },
-  async get () {
-    // return await posts.get();
+  async addComment (object, idPost) {
+    const postRef = db.ref('posts/' + idPost + '/comments');
+    await postRef.push(object, function (error) {
+      if (error) {
+        alert('Error al intentar agregar el comentario.', 'Aviso');
+      } else {
+        console.log('Comentario agregado correctamente.', 'Aviso');
+      }
+    });
   }
 };
 
-export default firebase;
+export default firebaseHelper;

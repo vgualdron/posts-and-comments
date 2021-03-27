@@ -5,14 +5,14 @@
         <ImageProfile :size="sizeImage" />
       </td>
       <td>
-        <h1 class="comment-user-name">
-          Yeli Calderón
-        </h1>
+        <h1 v-if="comment && comment.user" class="comment-user-name">
+            {{comment.user.email}}
+          </h1>
         <h4 class="comment-date">
-          fecha
+          {{new Date(comment.date).toLocaleString()}}
         </h4>
         <p class="comment-description">
-          esto es un comentario
+          {{comment.description}}
         </p>
       </td>
     </tr>
@@ -26,7 +26,10 @@ export default {
   components: {
   },
   props: {
-
+    comment: {
+      type: Object,
+      require: true
+    }
   },
   data () {
     return {

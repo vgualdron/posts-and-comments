@@ -1,6 +1,6 @@
 <template>
   <article class="post">
-    <table>
+    <table class="container">
       <tr>
         <td class="td-image">
           <ImageProfile :size="sizeImage" />
@@ -18,13 +18,13 @@
         </td>
       </tr>
     </table>
-    <table class="information-post">
+    <table class="information-post" v-if="post.comments && post.comments.length > 0">
       <tr>
         <td class="data-one">
-          <InformationPostReactions />
+          <InformationPostReactions :likes="post.likes" />
         </td>
         <td class="data-two">
-          <InformationPostComments />
+          <InformationPostComments :comments="post.comments" />
         </td>
       </tr>
     </table>
@@ -35,8 +35,8 @@
         </td>
       </tr>
     </table> -->
-    <GridComments />
-    <AddComment />
+    <GridComments :comments="post.comments" />
+    <AddComment :post="post" @successfulComment="setComment"/>
   </article>
 </template>
 
@@ -60,7 +60,10 @@ export default {
     AddComment
   },
   props: {
-    post: Object
+    post: {
+      type: Object,
+      require: true
+    }
   },
   data () {
     return {
@@ -68,9 +71,12 @@ export default {
     };
   },
   mounted () {
+    console.log('Post');
   },
   methods: {
-
+    setComment () {
+      console.log(this.post);
+    }
   }
 };
 </script>

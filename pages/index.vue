@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import firebase from '../helpers/firebase';
+import firebaseHelper from '../helpers/firebaseHelper';
+import postHelper from '../helpers/postsHelper';
 import Header from '~/components/Header.vue';
 import GridPosts from '~/components/GridPosts.vue';
 import AddPost from '~/components/AddPost.vue';
@@ -33,20 +34,12 @@ export default {
   },
   async created () {
     const self = this;
-    self.isSigned = await firebase.isSigned();
-    firebase.getRef().orderByChild('date').on('value', function (snapshot) {
+    self.isSigned = await firebaseHelper.isSigned();
+    firebaseHelper.getRef().orderByChild('date').on('value', function (snapshot) {
+      console.log('******');
       const posts = snapshot.val();
       self.posts = [];
-      if (posts) {
-        const keys = Object.keys(posts);
-        if (keys) {
-          keys.forEach((element) => {
-            self.posts.push(posts[element]);
-          });
-          const arrayTemp = self.posts.sort((a, b) => b.date - a.date);
-          self.posts = [...arrayTemp];
-        }
-      }
+      self.posts = postHelper.parseData(posts);
     }, function (errorObject) {
       console.log('The read failed: ' + errorObject.code);
     });

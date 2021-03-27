@@ -15,7 +15,6 @@ article.post > table {
 
 article.post > table.information-post {
     padding: 5px;
-    border-top: solid 1px $gray-300;
     border-bottom: solid 1px $gray-300;
     width: 100%;
 }
@@ -55,8 +54,13 @@ table.actions-post > tr > td.action-two {
 
 td.td-image {
     width: 60px;
-    display: block;
+    display: table-cell;
     text-align: center;
+}
+
+.post > .container {
+    border-bottom: solid 1px $gray-300;
+    width: 100%;
 }
 
 .post-user-name {

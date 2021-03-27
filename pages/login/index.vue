@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import firebase from '../../helpers/firebase';
+import firebaseHelper from '../../helpers/firebaseHelper';
 import Header from '~/components/Header.vue';
 import GridPosts from '~/components/GridPosts.vue';
 import AddPost from '~/components/AddPost.vue';
@@ -31,8 +31,8 @@ export default {
   },
   async created () {
     const self = this;
-    self.isSigned = await firebase.isSigned();
-    firebase.getRef().orderByChild('description').on('value', function (snapshot) {
+    self.isSigned = await firebaseHelper.isSigned();
+    firebaseHelper.getRef().orderByChild('description').on('value', function (snapshot) {
       const posts = snapshot.val();
       self.posts = [];
       const keys = Object.keys(posts);

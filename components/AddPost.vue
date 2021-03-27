@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import firebase from '../helpers/firebase';
+import firebaseHelper from '../helpers/firebaseHelper';
 
 export default {
   name: 'AddPosts',
@@ -33,9 +33,11 @@ export default {
       const newPost = {
         description: this.description,
         date: new Date().getTime(),
-        user: await firebase.getUserOnSesion()
+        user: await firebaseHelper.getUserOnSesion(),
+        comments: '',
+        likes: ''
       };
-      await firebase.add(newPost);
+      await firebaseHelper.addPost(newPost);
       this.description = '';
       this.$emit('successfulPost');
       this.$toast.success('Publicación realizada con éxito.');

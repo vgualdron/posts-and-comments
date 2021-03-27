@@ -28,6 +28,11 @@ textarea.form-control {
 
 textarea.form-control:hover {
     color: $primary;
+    border: solid 1px $primary;
+}
+
+textarea.form-control:focus {
+    border: solid 1px $primary;
 }
 
 textarea.border-none {
@@ -52,11 +57,17 @@ textarea::placeholder {
 }
 
 textarea.form-control.secondary {
+    height: 50px;
+}
+
+textarea.form-control.secondary {
     color: $secondary;
+    font-size: 14px;
 }
 
 textarea.secondary::placeholder {
-    color: $secondary;  
+    color: $secondary;
+    font-size: 14px;
 }
     
  

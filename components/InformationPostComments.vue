@@ -1,23 +1,27 @@
 <template>
-  <div class="label-count-comments">3 Comentarios</div>
+  <div v-if="comments && comments.length > 0 " class="label-count-comments">
+    {{comments.length}} {{comments.length > 1 ? ' Comentarios' : 'Comentario'}}
+  </div>
 </template>
 
 <script>
 export default {
   name: 'InformationPostComments',
   props: {
-
+    comments: {
+      type: Array,
+      require: true
+    }
   },
   data () {
     return {
-      user: '',
-      password: ''
     };
   },
-  mounted () {
+  created () {
+  },
+  updated () {
   },
   methods: {
-
   }
 };
 </script>
