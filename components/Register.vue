@@ -1,9 +1,12 @@
 <template>
   <form @submit="submit">
-    <input v-model="email" type="email">
-    <input v-model="password" type="password">
-    <button type="submit">Crear cuenta</button>
-    <button @click="goLogin">Ir a iniciar sesión</button>
+    <fieldset>
+      <legend>Registrarse</legend>
+      <input v-model="email" type="email">
+      <input v-model="password" type="password">
+      <button type="submit">Crear cuenta</button>
+      <button @click="goLogin">Ir a iniciar sesión</button>
+    </fieldset>
   </form>
 </template>
 
