@@ -42,7 +42,6 @@ export const actions = {
     });
   },
   register ({ commit }, payload) {
-    console.log(payload);
     return new Promise((resolve, reject) => {
       commit('auth_request');
       return Firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
