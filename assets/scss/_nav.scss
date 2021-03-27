@@ -1,0 +1,37 @@
+@import "variables";
+
+.navbar {
+    background-color: $white;
+    border-bottom: solid 1px $gray-300;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1071;
+    font-family: $font-family;
+}
+
+.navbar > h1 {
+    line-height: 60px;
+}
+
+nav.nav-information {
+    margin: 6px 2px 57px 0px;
+    padding: 12px 0px;
+}
+
+nav.nav-information > a.welcome {
+    float: left;
+    text-decoration: none;
+    cursor: default;
+    color: $gray-600;
+    font-weight: bold;
+}
+
+nav.nav-information > .btn.signout {
+    float: right;
+    text-decoration: none;
+    cursor: pointer;
+    color: $primary;
+    font-weight: bold;
+    margin-top: 5px;
+}

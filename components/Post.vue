@@ -36,7 +36,7 @@
       </tr>
     </table> -->
     <GridComments :comments="post.comments" />
-    <AddComment :post="post" @successfulComment="setComment"/>
+    <AddComment :post="post" />
   </article>
 </template>
 
@@ -71,12 +71,8 @@ export default {
     };
   },
   mounted () {
-    console.log('Post');
   },
   methods: {
-    setComment () {
-      console.log(this.post);
-    }
   }
 };
 </script>

@@ -19,29 +19,12 @@ const firebaseHelper = {
   getRef () {
     return posts;
   },
-  async login () {
-    return await Firebase.auth().signInWithEmailAndPassword(
-      firebaseConfig.user.email, firebaseConfig.user.password
-    );
-  },
-  async logout (self) {
-    localStorage.removeItem('user');
-    return await Firebase.auth().signOut();
-  },
-  async isSigned () {
-    const result = await this.login();
-    if (result && result.user) {
-      localStorage.setItem('user', JSON.stringify(result.user));
-      return true;
-    }
-    return false;
-  },
   getUserOnSesion () {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   },
   getUidUserOnSesion () {
-    return this.getUserOnSesion().uid;
+    return this.getUserOnSesion() ? this.getUserOnSesion().uid : null;
   },
   async addPost (object) {
     await posts.push(object, function (error) {

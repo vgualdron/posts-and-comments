@@ -1,53 +1,33 @@
 <template>
-  <div class="container">
+  <article>
     <Header />
-    <AddPost @successfulPost="setPost" />
-    <GridPosts :posts="posts" />
+    <Register />
     <Footer />
-  </div>
+  </article>
 </template>
 
 <script>
-import firebaseHelper from '../../helpers/firebaseHelper';
 import Header from '~/components/Header.vue';
-import GridPosts from '~/components/GridPosts.vue';
-import AddPost from '~/components/AddPost.vue';
 import Footer from '~/components/Footer.vue';
+import Register from '~/components/Register.vue';
 
 export default {
-  name: 'Register',
+  name: 'PageRegister',
   components: {
     Header,
     Footer,
-    GridPosts,
-    AddPost
+    Register
   },
   layout: 'default',
   data () {
     return {
-      isSigned: false,
-      posts: []
     };
   },
-  async created () {
-    const self = this;
-    self.isSigned = await firebaseHelper.isSigned();
-    firebaseHelper.getRef().orderByChild('description').on('value', function (snapshot) {
-      const posts = snapshot.val();
-      self.posts = [];
-      const keys = Object.keys(posts);
-      keys.forEach((element) => {
-        self.posts.push(posts[element]);
-      });
-    }, function (errorObject) {
-      console.log('The read failed: ' + errorObject.code);
-    });
+  created () {
   },
   mounted () {
   },
   methods: {
-    setPost () {
-    }
   }
 };
 </script>

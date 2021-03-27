@@ -41,7 +41,6 @@ export default {
       };
       await firebaseHelper.addComment(newComment, this.post.id);
       this.description = '';
-      this.$emit('successfulComment');
       this.$toast.success('Comentario realizado con éxito.');
     }
   }

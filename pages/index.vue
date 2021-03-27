@@ -2,8 +2,9 @@
   <div>
     <Header />
     <section class="container">
-      <AddPost @successfulPost="setPost" />
-      <GridPosts :posts="posts" />
+      <Nav />
+      <AddPost />
+      <GridPosts v-if="posts && posts.length > 0" :posts="posts" />
     </section>
     <Footer />
   </div>
@@ -13,14 +14,16 @@
 import firebaseHelper from '../helpers/firebaseHelper';
 import postHelper from '../helpers/postsHelper';
 import Header from '~/components/Header.vue';
+import Nav from '~/components/Nav.vue';
 import GridPosts from '~/components/GridPosts.vue';
 import AddPost from '~/components/AddPost.vue';
 import Footer from '~/components/Footer.vue';
 
 export default {
-  name: 'Inicio',
+  name: 'Home',
   components: {
     Header,
+    Nav,
     Footer,
     GridPosts,
     AddPost
@@ -28,15 +31,17 @@ export default {
   layout: 'default',
   data () {
     return {
-      isSigned: false,
       posts: []
     };
   },
-  async created () {
+  computed: {
+    isLoggedIn () {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
+  created () {
     const self = this;
-    self.isSigned = await firebaseHelper.isSigned();
     firebaseHelper.getRef().orderByChild('date').on('value', function (snapshot) {
-      console.log('******');
       const posts = snapshot.val();
       self.posts = [];
       self.posts = postHelper.parseData(posts);
@@ -45,10 +50,11 @@ export default {
     });
   },
   mounted () {
+    if (!this.isLoggedIn) {
+      this.$router.push('/login');
+    }
   },
   methods: {
-    setPost () {
-    }
   }
 };
 </script>
