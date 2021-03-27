@@ -3,7 +3,7 @@ import Firebase from 'firebase';
 export const state = () => {
   return {
     status: '',
-    user: JSON.parse(localStorage.getItem('user')) || null
+    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {}
   };
 };
 
