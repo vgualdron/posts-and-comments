@@ -72,7 +72,7 @@ export const actions = {
 };
 
 export const getters = {
-  user: state => state.user,
+  user: state => typeof state.user === 'string' ? JSON.parse(state.user) : state.user,
   isLoggedIn: state => !!state.user,
   authStatus: state => state.status
 };
