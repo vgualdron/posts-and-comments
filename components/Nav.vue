@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     user () {
-      return JSON.parse(this.$store.getters.user);
+      return this.$store.getters.user;
     }
   },
   data () {
