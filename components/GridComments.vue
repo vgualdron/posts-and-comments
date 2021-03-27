@@ -1,26 +1,26 @@
 <template>
-  <div>
-    <Comment />
-    <AddComment />
-  </div>
+  <article class="grid-comments">
+    <Comment class="comment" />
+    <Comment class="comment" />
+    <Comment class="comment" />
+  </article>
 </template>
 
 <script>
 import Comment from '~/components/Comment.vue';
-import AddComment from '~/components/AddComment.vue';
 export default {
   name: 'GridComments',
   components: {
-    Comment,
-    AddComment
+    Comment
   },
   props: {
-
+    comments: {
+      type: Array,
+      require: true
+    }
   },
   data () {
     return {
-      user: '',
-      password: ''
     };
   },
   mounted () {

@@ -1,5 +1,5 @@
 <template>
-  <div>information post comments</div>
+  <div class="label-count-comments">3 Comentarios</div>
 </template>
 
 <script>

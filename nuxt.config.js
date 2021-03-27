@@ -15,6 +15,9 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    htmlAttrs: {
+      lang: 'es'
+    },
     title: envConfig.appName,
     meta: [
       { charset: 'utf-8' },

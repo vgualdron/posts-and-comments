@@ -1,0 +1,27 @@
+@import "variables";
+
+.comment {
+    margin-top: 10px;
+    width: 100%;
+}
+article.grid-comments {
+    background: $gray-100;
+}
+form.add-comment {
+    padding: 10px;
+}
+
+.comment-user-name {
+    color: $primary;
+    font-size: 14px;
+}
+
+.comment-date {
+    color: $gray-500;
+    font-size: 11px;
+}
+
+.comment-description {
+    margin-top: 0px;
+    font-size: 14px;
+}

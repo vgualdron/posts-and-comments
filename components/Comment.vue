@@ -1,7 +1,22 @@
 <template>
-  <div>
-    esto es un comentario
-  </div>
+  <table>
+    <tr>
+      <td class="td-image">
+        <ImageProfile :size="sizeImage" />
+      </td>
+      <td>
+        <h1 class="comment-user-name">
+          Yeli Calderón
+        </h1>
+        <h4 class="comment-date">
+          fecha
+        </h4>
+        <p class="comment-description">
+          esto es un comentario
+        </p>
+      </td>
+    </tr>
+  </table>
 </template>
 
 <script>
@@ -15,8 +30,7 @@ export default {
   },
   data () {
     return {
-      user: '',
-      password: ''
+      sizeImage: 'xs'
     };
   },
   mounted () {

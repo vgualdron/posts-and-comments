@@ -1,14 +1,62 @@
 @import "variables";
 
-td.td-image {
-    width: 80px;
-    display: block;
-    text-align: center;
+article.post {
+    background-color: $white;
+    border: solid 1px $gray-300;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: justify;
 }
 
-td.td-image > img {
-    width: 50px;
-    border-radius: 50px;
+article.post > table {
+    padding: 5px;
+    padding-right: 10px;
+}
+
+article.post > table.information-post {
+    padding: 5px;
+    border-top: solid 1px $gray-300;
+    border-bottom: solid 1px $gray-300;
+    width: 100%;
+}
+
+table.information-post > tr > td.data-one {
+    width: 50%;
+    text-align: left;
+}
+
+table.information-post > tr > td.data-two {
+    width: 50%;
+    text-align: right;
+}
+
+article.post > table.actions {
+    padding: 5px;
+    border-top: solid 1px $gray-300;
+    border-bottom: solid 1px $gray-300;
+    width: 100%;
+}
+
+table.actions-post {
+    width: 100%;
+}
+
+table.actions-post > tr > td.action-one {
+    text-align: left;
+    display: inline-block;
+}
+
+table.actions-post > tr > td.action-two {
+    border-left: none;
+    width: 85%;
+    text-align: left;
+    display: inline-block;
+}
+
+td.td-image {
+    width: 60px;
+    display: block;
+    text-align: center;
 }
 
 .post-user-name {
@@ -24,3 +72,51 @@ td.td-image > img {
 .post-description {
     margin-top: 15px;
 }
+
+.label-count-comments {
+    color: $gray-500;
+    font-size: 14px;
+}
+
+img.profile-xs {
+    width: 30px;
+    border-radius: 50px;
+}
+
+img.profile-sm {
+    width: 40px;
+    border-radius: 50px;
+}
+
+img.profile-md {
+    width: 50px;
+    border-radius: 50px;
+}
+
+img.profile-lg {
+    width: 60px;
+    border-radius: 50px;
+}
+
+img.profile-xl {
+    width: 70px;
+    border-radius: 50px;
+}
+
+@media (max-width: 991.98px) {
+    table.actions-post > tr > td.ation-one {
+        width: 50% !important;
+        text-align: center !important;
+    }
+
+    table.actions-post > tr > td.action-two {
+        border-left: solid 1px $gray-500;
+        width: 50% !important;
+        text-align: center !important;
+    }
+    
+}
+
+
+
+

@@ -34,16 +34,6 @@ fieldset > .btn {
     margin: 5px;
 }
 
-article.post {
-    background-color: $white;
-    border: solid 1px $gray-300;
-    border-radius: 5px;
-    margin-top: 10px;
-    padding: 5px;
-    text-align: justify;
-    padding-right: 10px;
-}
-
 /*Tablet*/
 /*Portrait*/
 @media (min-width: 576px) and (max-width: 991.98px) and (orientation:portrait) {
@@ -53,7 +43,7 @@ article.post {
 }
 
 /*landscape*/
-@media (min0-width: 991.98px) and (max-width: 1199.98px)and (orientation:landscape) {
+@media (min-width: 991.98px) and (max-width: 1199.98px)and (orientation:landscape) {
     .container {
         padding: 25px 25px;
     }

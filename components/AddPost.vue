@@ -4,8 +4,8 @@
       <textarea class="form-control border-none" v-model="description" placeholder="Escribe aquí tu estado">
       </textarea>
     </fieldset>
-    <fieldset class="without-border-top without-border-radius-top white">
-      <button :disabled="this.description.trim().length <= 0" class="btn btn-primary" type="submit">Publicar</button>
+    <fieldset v-if="description.trim().length > 0" class="without-border-top without-border-radius-top white">
+      <button class="btn btn-primary" type="submit">Publicar</button>
     </fieldset>
   </form>
 </template>

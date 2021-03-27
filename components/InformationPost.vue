@@ -1,9 +1,14 @@
 <template>
-  <div>
-    information del post
-    <InformationPostReactions />
-    <InformationPostComments />
-  </div>
+  <table class="informations-post">
+    <tr>
+      <td class="data-one">
+        <InformationPostReactions />
+      </td>
+      <td class="data-two">
+        <InformationPostComments />
+      </td>
+    </tr>
+  </table>
 </template>
 
 <script>
@@ -20,8 +25,7 @@ export default {
   },
   data () {
     return {
-      user: '',
-      password: ''
+
     };
   },
   mounted () {

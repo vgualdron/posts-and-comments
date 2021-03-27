@@ -1,18 +1,23 @@
 <template>
-  <div>
-    Actions del post
-    <ActionPostReact />
-    <ActionPostComment />
-  </div>
+  <table class="actions-post">
+    <tr>
+      <td class="action-one">
+        Reaccionar
+      </td>
+      <td class="action-two">
+        <ActionPostComment />
+      </td>
+    </tr>
+  </table>
 </template>
 
 <script>
-import ActionPostReact from '~/components/ActionPostReact.vue';
+// import ActionPostReact from '~/components/ActionPostReact.vue';
 import ActionPostComment from '~/components/ActionPostComment.vue';
 export default {
   name: 'ActionsPost',
   components: {
-    ActionPostReact,
+    // ActionPostReact,
     ActionPostComment
   },
   props: {
