@@ -1,6 +1,6 @@
 <template>
   <form @submit="submit">
-    <input v-model="user" type="email">
+    <input v-model="email" type="email">
     <input v-model="password" type="password">
     <button type="submit">Crear cuenta</button>
     <button @click="goLogin">Ir a iniciar sesión</button>
@@ -26,23 +26,35 @@ export default {
   methods: {
     async submit (event) {
       event.preventDefault();
-      const resp = await firebaseHelper.createUser(this.user, this.password);
-      if (resp.user) {
-        this.$toast.success('Cuenta creada con éxito.');
-        const result = await firebaseHelper.login(this.user, this.password);
-        if (result.user) {
+      
+      const email = this.email;
+      const password = this.password;
+      const payload = {
+        email,
+        password
+      };
+      await this.$store.dispatch('register', payload)
+        .then((resp) => {
+          this.$toast.success('Cuenta creada con éxito.');
+        }).catch((err) => {
+          if (err.message) {
+            this.$toast.error('Error al crear crea. ' + err.message);
+          } else {
+            this.$toast.error('Error al iniciar sesión. Intente más tarde por favor.');
+          }
+        });
+
+      await this.$store.dispatch('login', payload)
+        .then((resp) => {
           this.$toast.success('Sesión iniciada con éxito.');
-          this.$router.push({ path: '/' });
-        } else if (result.message) {
-          this.$toast.error('Error al crear la cuenta. ' + result.message);
-        } else {
-          this.$toast.error('Error al iniciar sesión con la cuenta creada. Intente más tarde por favor.');
-        }
-      } else if (resp.message) {
-        this.$toast.error('Error al crear la cuenta. ' + resp.message);
-      } else {
-        this.$toast.error('Error al crear la cuenta. Intente más tarde por favor.');
-      }
+          this.$router.push('/');
+        }).catch((err) => {
+          if (err.message) {
+            this.$toast.error('Error al iniciar sesión. ' + err.message);
+          } else {
+            this.$toast.error('Error al iniciar sesión. Intente más tarde por favor.');
+          }
+        });
     },
     goLogin (event) {
       event.preventDefault();
