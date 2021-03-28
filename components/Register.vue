@@ -41,7 +41,7 @@ export default {
           this.$toast.success('Cuenta creada con éxito.');
         }).catch((err) => {
           if (err.message) {
-            this.$toast.error('Error al crear crea. ' + err.message);
+            this.$toast.error('Error al crear cuenta. ' + err.message);
           } else {
             this.$toast.error('Error al iniciar sesión. Intente más tarde por favor.');
           }
