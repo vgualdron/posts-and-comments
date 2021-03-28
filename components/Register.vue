@@ -1,11 +1,11 @@
 <template>
-  <form @submit="submit">
+  <form @submit="submit" class="form-register">
     <fieldset>
       <legend>Registrarse</legend>
-      <input v-model="email" type="email">
-      <input v-model="password" type="password">
-      <button type="submit">Crear cuenta</button>
-      <button @click="goLogin">Ir a iniciar sesión</button>
+      <input class="form-control" v-model="email" type="email" placeholder="Escriba el correo">
+      <input class="form-control" v-model="password" type="password"  placeholder="Escriba la contraseña">
+      <button type="submit" class="btn btn-primary">Registrarse</button>
+      <button @click="goLogin"  class="btn btn-outline-primary">Ir a iniciar sesión</button>
     </fieldset>
   </form>
 </template>

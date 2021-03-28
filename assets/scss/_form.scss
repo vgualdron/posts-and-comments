@@ -17,6 +17,22 @@
     font-family: $font-family;
 }
 
+.form-login,
+.form-register {
+    max-width: 500px;
+    padding: 25px;
+    display: inline-block;
+}
+
+.form-login > fieldset,
+.form-register > fieldset {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: $primary;
+}
+
 textarea.form-control {
     color: $primary;
     height: 70px;
@@ -69,8 +85,53 @@ textarea.secondary::placeholder {
     color: $secondary;
     font-size: 14px;
 }
-    
- 
+
+input.form-control.size-lg {
+    height: 70px;
+}
+
+input.form-control.secondary {
+    height: 50px;
+}
+
+input.form-control {
+    color: $primary;
+    height: 36px;
+    overflow: auto;
+    padding: 10px;
+    resize: none;
+    outline: none;
+    margin-top: 15px;
+}
+
+input.form-control:hover {
+    color: $primary;
+    border: solid 1px $primary;
+}
+
+input.form-control:focus {
+    border: solid 1px $primary;
+}
+
+input::placeholder {
+    color: $primary;
+}
+
+.form-login > fieldset > button,
+.form-register > fieldset > button {
+    width: 100%;
+}
+
+.form-login > fieldset > button.btn-primary,
+.form-register > fieldset > button.btn-primary {
+    margin: 25px 0px 0px 0px;
+}
+
+.form-login > fieldset > button.btn-outline-primary,
+.form-register > fieldset > button.btn-outline-primary {
+    margin: 10px 0px 0px 0px;
+}
+
 
 
 
