@@ -1,7 +1,7 @@
 {
   "name": "post-and-comments",
   "short_name": "post-and-comments",
-  "description": "```bash\r # install dependencies\r $ npm install",
+  "description": "## Build Setup",
   "icons": [
     {
       "src": "/posts-and-comments/_nuxt/icons/icon_64x64.5f6a36.png",

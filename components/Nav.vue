@@ -1,7 +1,15 @@
 <template>
   <nav class="nav-information" v-if="user && user.email">
-    <a class="welcome" href="#">Bienvenido, {{ user.email }}</a>
-    <button class="signout btn btn-outline-primary" @click="logout">Cerrar sesión</button>
+    <ul>
+      <li class="signout">
+        <button class="signout btn btn-outline-primary" @click="logout">Cerrar sesión</button>
+      </li>
+    </ul>
+    <ul>
+      <li class="welcome">
+        <a href="#">Bienvenido, {{ user.email }}</a>
+      </li>
+    </ul>
   </nav>
 </template>
 

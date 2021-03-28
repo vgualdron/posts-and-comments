@@ -3,7 +3,8 @@
     <fieldset>
       <legend>Registrarse</legend>
       <input class="form-control" v-model="email" type="email" placeholder="Escriba el correo">
-      <input class="form-control" v-model="password" type="password"  placeholder="Escriba la contraseña">
+      <input class="form-control" v-model="password" type="password" placeholder="Escriba la contraseña">
+      <input class="form-control" v-model="passwordConfirm" type="password" placeholder="Vuelve a escribir la contraseña">
       <button type="submit" class="btn btn-primary">Registrarse</button>
       <button @click="goLogin"  class="btn btn-outline-primary">Ir a iniciar sesión</button>
     </fieldset>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import { isEmptyString } from '../util/string-utils';
 
 export default {
   name: 'Register',
@@ -20,7 +22,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      passwordConfirm: ''
     };
   },
   mounted () {
@@ -28,6 +31,18 @@ export default {
   methods: {
     async submit (event) {
       event.preventDefault();
+      if (isEmptyString(this.email)) {
+        this.$toast.error('El campo email es obligatorio.');
+        return false;
+      }
+      if (isEmptyString(this.password)) {
+        this.$toast.error('El campo email es obligatorio.');
+        return false;
+      }
+      if (this.password !== this.passwordConfirm) {
+        this.$toast.error('Los valores de los campos de contraseña no coinciden.');
+        return false;
+      }
       const email = this.email;
       const password = this.password;
       const payload = {

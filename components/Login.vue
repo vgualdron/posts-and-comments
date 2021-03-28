@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// import firebaseHelper from '../helpers/firebaseHelper';
+import { isEmptyString } from '../util/string-utils';
 
 export default {
   name: 'Login',
@@ -29,6 +29,14 @@ export default {
   methods: {
     async submit (event) {
       event.preventDefault();
+      if (isEmptyString(this.email)) {
+        this.$toast.error('El campo email es obligatorio.');
+        return false;
+      }
+      if (isEmptyString(this.password)) {
+        this.$toast.error('El campo email es obligatorio.');
+        return false;
+      }
       const email = this.email;
       const password = this.password;
       const payload = {
