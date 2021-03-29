@@ -1,13 +1,8 @@
 <template>
-  <nav class="nav-information" v-if="user && user.email">
-    <ul>
-      <li class="signout">
-        <button class="signout btn btn-outline-primary" @click="logout">Cerrar sesión</button>
-      </li>
-    </ul>
+  <nav v-if="user && user.email" class="nav-information">
     <ul>
       <li class="welcome">
-        <a href="#">Bienvenido, {{ user.email }}</a>
+        <a href="#">Hola, {{ user.email }}</a>
       </li>
     </ul>
   </nav>
@@ -17,7 +12,6 @@
 export default {
   name: 'Nav',
   props: {
-
   },
   computed: {
     user () {
@@ -31,19 +25,6 @@ export default {
   created () {
   },
   methods: {
-    async logout () {
-      await this.$store.dispatch('logout')
-        .then((resp) => {
-          this.$toast.success('Sesión cerrada con éxito.');
-          this.$router.push('/login');
-        }).catch((err) => {
-          if (err.message) {
-            this.$toast.error('Error al cerrar sesión. ' + err.message);
-          } else {
-            this.$toast.error('Error al cerrar sesión. Intente más tarde por favor.');
-          }
-        });
-    }
   }
 };
 </script>
