@@ -3,7 +3,7 @@
     <fieldset class="without-border-bottom without-border-radius-bottom white">
       <textarea v-model="description" class="form-control border-none" placeholder="Escribe aquí tu estado" />
     </fieldset>
-    <fieldset v-if="description.trim().length > 0" class="without-border-top without-border-radius-top white">
+    <fieldset v-if="description.length > 0" class="without-border-top without-border-radius-top white">
       <button class="btn btn-primary" type="submit">
         Publicar
       </button>
