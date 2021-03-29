@@ -1,5 +1,5 @@
 <template>
-  <div>action post react</div>
+  <span>Reaccionar</span>
 </template>
 
 <script>
@@ -10,8 +10,6 @@ export default {
   },
   data () {
     return {
-      user: '',
-      password: ''
     };
   },
   mounted () {

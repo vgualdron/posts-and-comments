@@ -1,16 +1,17 @@
 @import "variables";
 
 .comment {
-    margin-top: 10px;
+    padding-top: 10px;
     width: 100%;
+    padding-right: 6px;
 }
 article.grid-comments {
     background: $gray-100;
-    padding-left: 15px;
+    padding-left: 0px;
 }
 form.add-comment {
     background: $gray-100;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 10px 10px 20px;
 }
 
 .comment-user-name {

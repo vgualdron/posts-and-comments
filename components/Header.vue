@@ -1,6 +1,8 @@
 <template>
   <header class="navbar">
-    <h1>{{ appName }}</h1>
+    <h1>
+      <img src="../assets/images/logo-header.png" />
+    </h1>
   </header>
 </template>
 

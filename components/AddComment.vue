@@ -1,7 +1,7 @@
 <template>
   <form class="add-comment" @submit="submit">
     <fieldset class="without-border-bottom without-border-radius-bottom white">
-      <textarea class="form-control border-none secondary" v-model="description" placeholder="Escribe aquí tu comentario">
+      <textarea v-model="description" ref="textareaAddComment" class="form-control border-none secondary" placeholder="Escribe aquí tu comentario">
       </textarea>
     </fieldset>
     <fieldset v-if="description.trim().length > 0" class="without-border-top without-border-radius-top white">

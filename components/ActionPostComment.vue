@@ -1,5 +1,7 @@
 <template>
-  <div>action post comment</div>
+  <span @click="click" ref="span">
+    Comentar
+  </span>
 </template>
 
 <script>
@@ -10,14 +12,14 @@ export default {
   },
   data () {
     return {
-      user: '',
-      password: ''
     };
   },
   mounted () {
   },
   methods: {
-
+    click () {
+      this.$emit('clickAddComment');
+    }
   }
 };
 </script>

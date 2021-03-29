@@ -14,8 +14,7 @@ article.post > table {
 }
 
 article.post > table.information-post {
-    padding: 5px;
-    border-bottom: solid 1px $gray-300;
+    padding: 8px 5px;
     width: 100%;
 }
 
@@ -31,9 +30,9 @@ table.information-post > tr > td.data-two {
 
 article.post > table.actions {
     padding: 5px;
-    border-top: solid 1px $gray-300;
     border-bottom: solid 1px $gray-300;
     width: 100%;
+    display: none;
 }
 
 table.actions-post {
@@ -108,20 +107,58 @@ img.profile-xl {
     border-radius: 50px;
 }
 
-@media (max-width: 991.98px) {
-    table.actions-post > tr > td.ation-one {
-        width: 50% !important;
-        text-align: center !important;
-    }
+.actions {
+    border-bottom: none;
+}
 
-    table.actions-post > tr > td.action-two {
-        border-left: solid 1px $gray-500;
-        width: 50% !important;
-        text-align: center !important;
-    }
-    
+.actions.in-description {
+    border-bottom: none;
+}
+
+.actions.apart {
+    border-bottom: solid 1px $gray-300;
+}
+
+.actions-posts.actions-in-description{
+    display: inline-block;
+    padding: 15px 33px 10px 0px;
+}
+
+.actions-posts.actions-apart {
+    display: none;
 }
 
 
+.actions > .actions-posts > span {
+    color: $primary;
+    font-size: 15px;
+    padding: 0px;
+    display: block;
+    height: 39px;
+    line-height: 39px;
+}
 
+.actions > article.actions-posts:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
 
+@media (max-width: 991.98px) {
+    .actions-posts.actions-in-description{
+        display: none;
+    }
+    
+    .actions.apart > article.second {
+        border-left: solid 1px $gray-300;
+    }
+
+    .actions-posts.actions-apart {
+        display: inline-block;
+        width: 49.5%;
+        text-align: center;
+    }
+
+    article.post > table.information-post {
+        border-bottom: solid 1px $gray-300;
+    }
+}

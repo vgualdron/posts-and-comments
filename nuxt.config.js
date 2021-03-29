@@ -76,6 +76,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend (config, ctx) {
+      config.node = {
+        child_process: "empty",
+        fs: "empty"
+      }
+    }
   },
   router: {
     // es opcional

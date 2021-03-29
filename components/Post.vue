@@ -7,18 +7,26 @@
         </td>
         <td>
           <h1 v-if="post && post.user" class="post-user-name">
-            {{post.user.email}}
+            {{ post.user.email }}
           </h1>
           <h4 class="post-date">
-            {{new Date(post.date).toLocaleString()}}
+            {{ new Date(post.date).toLocaleString() }}
           </h4>
           <p class="post-description">
-            {{post.description}}
+            {{ post.description }}
           </p>
+          <section class="actions">
+            <article class="actions-posts actions-in-description">
+              <ActionPostReact />
+            </article>
+            <article class="actions-posts actions-in-description">
+              <ActionPostComment @clickAddComment="clickAddComment" />
+            </article>
+          </section>
         </td>
       </tr>
     </table>
-    <table class="information-post" v-if="post.comments && post.comments.length > 0">
+    <table v-if="post.comments && post.comments.length > 0" class="information-post">
       <tr>
         <td class="data-one">
           <InformationPostReactions :likes="post.likes" />
@@ -28,21 +36,22 @@
         </td>
       </tr>
     </table>
-    <!--<table class="actions">
-      <tr>
-        <td>
-          <ActionsPost />
-        </td>
-      </tr>
-    </table> -->
+    <section class="actions apart">
+      <article class="actions-posts actions-apart">
+        <ActionPostReact />
+      </article>
+      <article class="actions-posts actions-apart second">
+        <ActionPostComment @clickAddComment="clickAddComment" />
+      </article>
+    </section>
     <GridComments :comments="post.comments" />
-    <AddComment :post="post" />
+    <AddComment :post="post" ref="addComment"/>
   </article>
 </template>
-
 <script>
 // import InformationPost from '~/components/InformationPost.vue';
-// import ActionsPost from '~/components/ActionsPost.vue';
+import ActionPostComment from '~/components/ActionPostComment.vue';
+import ActionPostReact from '~/components/ActionPostReact.vue';
 import ImageProfile from '~/components/ImageProfile.vue';
 import InformationPostReactions from '~/components/InformationPostReactions.vue';
 import InformationPostComments from '~/components/InformationPostComments.vue';
@@ -54,7 +63,8 @@ export default {
   components: {
     InformationPostReactions,
     InformationPostComments,
-    // ActionsPost,
+    ActionPostComment,
+    ActionPostReact,
     ImageProfile,
     GridComments,
     AddComment
@@ -62,7 +72,8 @@ export default {
   props: {
     post: {
       type: Object,
-      require: true
+      require: true,
+      default: null
     }
   },
   data () {
@@ -73,6 +84,15 @@ export default {
   mounted () {
   },
   methods: {
+    clickAddComment () {
+      const refs = this.$refs;
+      if (refs && refs.addComment) {
+        const internalRefs = refs.addComment.$refs;
+        if (internalRefs && internalRefs.textareaAddComment) {
+          internalRefs.textareaAddComment.focus();
+        }
+      }
+    }
   }
 };
 </script>
