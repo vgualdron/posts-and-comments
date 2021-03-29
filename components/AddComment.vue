@@ -1,8 +1,13 @@
 <template>
   <form class="add-comment" @submit="submit">
     <fieldset class="without-border-bottom without-border-radius-bottom white">
-      <textarea v-model="description" ref="textareaAddComment" class="form-control border-none secondary" placeholder="Escribe aquí tu comentario">
-      </textarea>
+      <textarea 
+        v-model="description" 
+        ref="textareaAddComment" 
+        class="form-control border-none secondary" 
+        placeholder="Escribe aquí tu comentario" 
+        @input="$event.target.composing = false" 
+      />
     </fieldset>
     <fieldset v-if="description.trim().length > 0" class="without-border-top without-border-radius-top white">
       <button class="btn btn-primary" type="submit">Comentar</button>
