@@ -1,5 +1,5 @@
 <template>
-  <span @click="click" ref="span">
+  <span ref="span" @click="click">
     Comentar
   </span>
 </template>

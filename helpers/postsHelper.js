@@ -5,7 +5,7 @@ const postHelper = {
       const keysPost = Object.keys(posts);
       if (keysPost) {
         keysPost.forEach((post) => {
-          const { date, description, user, comments, likes } = {
+          const { date, description, user, comments, reactions } = {
             ...posts[post]
           };
 
@@ -13,25 +13,29 @@ const postHelper = {
           const keysComments = Object.keys(comments);
           if (keysComments) {
             keysComments.forEach((comment) => {
-              commentsArray.push(
-                {
-                  id: comment,
-                  ...comments[comment]
-                }
-              );
+              if (comment !== '0') {
+                commentsArray.push(
+                  {
+                    id: comment,
+                    ...comments[comment]
+                  }
+                );
+              }
             });
           }
 
-          const likesArray = [];
-          const keysLikes = Object.keys(likes);
-          if (keysLikes) {
-            keysLikes.forEach((like) => {
-              likesArray.push(
-                {
-                  id: like,
-                  ...likes[like]
-                }
-              );
+          const reactionsArray = [];
+          const keysReactions = Object.keys(reactions);
+          if (keysReactions) {
+            keysReactions.forEach((reaction) => {
+              if (reaction !== '0') {
+                reactionsArray.push(
+                  {
+                    id: reaction,
+                    ...reactions[reaction]
+                  }
+                );
+              }
             });
           }
 
@@ -41,7 +45,8 @@ const postHelper = {
               comments: commentsArray,
               date,
               description,
-              user
+              user,
+              reactions: reactionsArray
             }
           );
         });

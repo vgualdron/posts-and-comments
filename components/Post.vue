@@ -17,7 +17,7 @@
           </p>
           <section class="actions">
             <article class="actions-posts actions-in-description">
-              <ActionPostReact />
+              <ActionPostReact ref="ActionPostReactInDescription" :idpost="post.id" :reactions="post.reactions" :location="'in-description'" @changeData="changeData" />
             </article>
             <article class="actions-posts actions-in-description">
               <ActionPostComment @clickAddComment="clickAddComment" />
@@ -26,10 +26,10 @@
         </td>
       </tr>
     </table>
-    <table v-if="post.comments && post.comments.length > 0" class="information-post">
+    <table v-if="(post.comments && post.comments.length > 0) || post.reactions && post.reactions.length > 0" class="information-post">
       <tr>
         <td class="data-one">
-          <InformationPostReactions :likes="post.likes" />
+          <InformationPostReactions :reactions="post.reactions" />
         </td>
         <td class="data-two">
           <InformationPostComments :comments="post.comments" />
@@ -38,14 +38,14 @@
     </table>
     <section class="actions apart">
       <article class="actions-posts actions-apart">
-        <ActionPostReact />
+        <ActionPostReact ref="ActionPostReactApart" :idpost="post.id" :reactions="post.reactions" :location="'apart'" @changeData="changeData" />
       </article>
       <article class="actions-posts actions-apart second">
         <ActionPostComment @clickAddComment="clickAddComment" />
       </article>
     </section>
     <GridComments :comments="post.comments" />
-    <AddComment :post="post" ref="addComment"/>
+    <AddComment ref="addComment" :post="post" />
   </article>
 </template>
 <script>
@@ -90,6 +90,21 @@ export default {
         const internalRefs = refs.addComment.$refs;
         if (internalRefs && internalRefs.textareaAddComment) {
           internalRefs.textareaAddComment.focus();
+        }
+      }
+    },
+    changeData (location) {
+      if (this.$refs) {
+        if (location === 'apart') {
+          const component = this.$refs.ActionPostReactInDescription;
+          if (component) {
+            component.checkReactions();
+          }
+        } else if (location === 'in-description') {
+          const component = this.$refs.ActionPostReactApart;
+          if (component) {
+            component.checkReactions();
+          }
         }
       }
     }

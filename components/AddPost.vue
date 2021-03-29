@@ -1,11 +1,12 @@
 <template>
   <form @submit="submit">
     <fieldset class="without-border-bottom without-border-radius-bottom white">
-      <textarea class="form-control border-none" v-model="description" placeholder="Escribe aquí tu estado">
-      </textarea>
+      <textarea v-model="description" class="form-control border-none" placeholder="Escribe aquí tu estado" />
     </fieldset>
     <fieldset v-if="description.trim().length > 0" class="without-border-top without-border-radius-top white">
-      <button class="btn btn-primary" type="submit">Publicar</button>
+      <button class="btn btn-primary" type="submit">
+        Publicar
+      </button>
     </fieldset>
   </form>
 </template>
@@ -34,8 +35,12 @@ export default {
         description: this.description,
         date: new Date().getTime(),
         user: await firebaseHelper.getUserOnSesion(),
-        comments: '',
-        likes: ''
+        comments: {
+          0: 0
+        },
+        reactions: {
+          0: 0
+        }
       };
       await firebaseHelper.addPost(newPost);
       this.description = '';

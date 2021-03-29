@@ -44,6 +44,28 @@ const firebaseHelper = {
         console.log('Comentario agregado correctamente.', 'Aviso');
       }
     });
+  },
+  async addReaction (object, idPost) {
+    const postRef = db.ref('posts/' + idPost + '/reactions');
+    await postRef.push(object, function (error) {
+      if (error) {
+        alert('Error al intentar agregar la reacción.', 'Aviso');
+      } else {
+        console.log('Reacción agregada correctamente.', 'Aviso');
+      }
+    });
+  },
+  async removeReaction (idPost, idReaction) {
+    console.log(idPost);
+    console.log(idReaction);
+    const postRef = db.ref('posts/' + idPost + '/reactions/' + idReaction);
+    await postRef.remove(function (error) {
+      if (error) {
+        alert('Error al intentar eliminar la reacción.', 'Aviso');
+      } else {
+        console.log('Reacción eliminada correctamente.', 'Aviso');
+      }
+    });
   }
 };
 

@@ -143,6 +143,10 @@ img.profile-xl {
     font-weight: bold;
 }
 
+span.already-reacted {
+    color: $orange !important;
+}
+
 @media (max-width: 991.98px) {
     .actions-posts.actions-in-description{
         display: none;
