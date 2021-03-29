@@ -1,5 +1,6 @@
 <template>
   <span ref="span" :class="classCss" @click="toggleReaction">
+    <img v-if="alreadyReacted" src="../assets/images/star.png">
     {{ text }}
   </span>
 </template>
@@ -31,7 +32,8 @@ export default {
       text: 'Reaccionar',
       alreadyReacted: false,
       classCss: '',
-      uidReaction: ''
+      uidReaction: '',
+      icon: ''
     };
   },
   created () {

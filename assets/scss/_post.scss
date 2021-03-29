@@ -82,6 +82,16 @@ td.td-image {
     font-size: 14px;
 }
 
+.label-count-reactions {
+    color: $orange;
+    font-size: 14px;
+}
+
+.label-count-reactions > img {
+    width: 18px;
+    vertical-align: bottom;
+}
+
 img.profile-xs {
     width: 30px;
     border-radius: 50px;
@@ -136,6 +146,11 @@ img.profile-xl {
     display: block;
     height: 39px;
     line-height: 39px;
+}
+
+.actions >.actions-posts > span > img {
+    width: 18px;
+    vertical-align: text-bottom;
 }
 
 .actions > article.actions-posts:hover {
