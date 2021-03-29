@@ -1,6 +1,6 @@
 <template>
   <span ref="span" :class="classCss" @click="toggleReaction">
-    <img v-if="alreadyReacted" src="../assets/images/star.png">
+    <!-- <img v-if="alreadyReacted" src="../assets/images/star.png"> -->
     {{ text }}
   </span>
 </template>
