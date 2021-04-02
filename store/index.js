@@ -4,7 +4,7 @@ export const state = () => {
   return {
     status: '',
     user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {},
-    loggedIn: localStorage.getItem('user')
+    loggedIn: !!localStorage.getItem('user')
   };
 };
 
@@ -14,7 +14,7 @@ export const mutations = {
   },
   auth_success (state, user) {
     state.status = 'success';
-    state.user = user;
+    state.user = typeof user === 'string' ? JSON.parse(user) : user;
     state.loggedIn = true;
   },
   auth_error (state) {
