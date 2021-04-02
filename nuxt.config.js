@@ -84,7 +84,7 @@ export default {
     }
   },
   router: {
-    // es opcional
-    base: envConfig.appBaseDir
+    base: envConfig.appBaseDir,
+    middleware: ['auth']
   }
 }

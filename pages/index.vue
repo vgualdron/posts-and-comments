@@ -29,15 +29,13 @@ export default {
     AddPost
   },
   layout: 'default',
+  middleware: 'auth',
   data () {
     return {
       posts: []
     };
   },
   computed: {
-    isLoggedIn () {
-      return this.$store.getters.user.uid;
-    }
   },
   created () {
     const self = this;
@@ -50,9 +48,6 @@ export default {
     });
   },
   mounted () {
-    if (!this.isLoggedIn) {
-      this.$router.push('/login');
-    }
   },
   methods: {
   }

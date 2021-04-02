@@ -3,7 +3,8 @@ import Firebase from 'firebase';
 export const state = () => {
   return {
     status: '',
-    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {}
+    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {},
+    loggedIn: localStorage.getItem('user')
   };
 };
 
@@ -14,6 +15,7 @@ export const mutations = {
   auth_success (state, user) {
     state.status = 'success';
     state.user = user;
+    state.loggedIn = true;
   },
   auth_error (state) {
     state.status = 'error';
@@ -21,6 +23,7 @@ export const mutations = {
   logout (state) {
     state.status = '';
     state.user = {};
+    state.loggedIn = false;
   }
 };
 
@@ -72,6 +75,7 @@ export const actions = {
 };
 
 export const getters = {
-  user: state => typeof state.user === 'string' ? JSON.parse(state.user) : state.user,
+  loggedIn: state => state.loggedIn,
+  user: state => state.user,
   authStatus: state => state.status
 };
